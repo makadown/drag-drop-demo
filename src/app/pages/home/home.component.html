@@ -1,3 +1,7 @@
-<p>
-  home works!
-</p>
+<h1>Demo 01 - mover paises arriba / abajo</h1>
+<hr />
+<ul class="list-group" cdkDropList (cdkDropListDropped)="drop($event)">
+  <li *ngFor="let pais of paises" class="list-group-item" cdkDrag>
+    {{ pais.name }}
+  </li>
+</ul>
