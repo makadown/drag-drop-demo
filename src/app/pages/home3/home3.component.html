@@ -1,27 +1,20 @@
 <div class="example-container">
-    <h1>Demo 02</h1>
-  
-    <div
-      cdkDropList
-      #todoList="cdkDropList"
-      [cdkDropListData]="paises"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of paises" cdkDrag>{{item.name}}</div>
-    </div>
-  </div>
-  
-  <div class="example-container">
-    <h2>Mover hacia aca</h2>
-  
-    <div
-      cdkDropList
-      #doneList="cdkDropList"
-      [cdkDropListData]="paises2"
-      [cdkDropListConnectedTo]="[todoList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of paises2" cdkDrag>{{item.name}}</div>
-    </div>
-  </div>
+  <h3>Demo 03</h3>
+
+  <app-paises
+    [contenedor]="contenedores[0]"
+    [allDropLists]="allDropLists"
+  >
+  </app-paises>
+</div>
+
+<div class="example-container">
+  <h3>Mover hacia aca</h3>
+
+  <app-paises
+    [contenedor]="contenedores[1]"
+    [allDropLists]="allDropLists"
+  >
+  </app-paises>
+
+</div>

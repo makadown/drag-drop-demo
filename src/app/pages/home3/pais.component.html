@@ -1,0 +1,13 @@
+<div
+  cdkDropList
+  id="{{ contenedor.name }}"
+  [cdkDropListData]="contenedor.paises"
+  [cdkDropListConnectedTo]="allDropLists"
+  class="example-list"
+  (cdkDropListDropped)="drop($event)"
+>
+  <h3>{{ contenedor.name }}</h3> <hr>
+  <div class="example-box" *ngFor="let item of contenedor.paises" cdkDrag>
+    {{ item.name }}
+  </div>
+</div>

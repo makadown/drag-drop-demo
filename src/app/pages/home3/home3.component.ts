@@ -9,18 +9,33 @@ import { moveItemInArray, transferArrayItem, CdkDragDrop } from '@angular/cdk/dr
 })
 export class Home3Component implements OnInit {
 
-  paises: any[]=[];
-  paises2: any[]=[];
+  // paises: any[]=[];
+  /*paises2: any[]=[];*/
+  contenedores = [
+    {
+      name: 'Componente 1',
+      paises: []
+    },
+    {
+      name: 'Componente 2',
+      paises: []
+    }
+  ];
+
+  // allDropLists = [ 'paisesList', ...this.contenedores.map(_ => _.name)];
+  allDropLists = [ ...this.contenedores.map(_ => _.name)];
 
   constructor(private _paisesService: PaisesService) { }
 
   ngOnInit() {
     this._paisesService.getPaises().subscribe( (resultado: any[]) => {
-          this.paises = resultado;
+          // this.paises = resultado;
+          this.contenedores[0].paises = resultado;
     });
   }
 
-  drop(event: CdkDragDrop<any>) {
+  /* // usar este si meto un dragndrop externo!
+  drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -29,6 +44,7 @@ export class Home3Component implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
-  }
+    console.log(this.allDropLists);
+  } */
 
 }
